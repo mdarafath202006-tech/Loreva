@@ -5,6 +5,8 @@ import re
 from collections import Counter
 from typing import Any
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from pathlib import Path
 from pydantic import BaseModel, Field
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
@@ -85,6 +87,10 @@ class AskInput(BaseModel):
 retriever = Retriever()
 app = FastAPI(title="Loreva RAG API", version="0.1.0",
               description="Local lexical retrieval with source-grounded extractive answers.")
+
+@app.get("/", include_in_schema=False)
+def home():
+    return FileResponse(Path(__file__).parent / "index.html")
 
 @app.get("/health")
 def health():
