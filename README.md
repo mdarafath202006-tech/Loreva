@@ -2,6 +2,8 @@
 
 Loreva is a lightweight retrieval-augmented generation (RAG) backend built with FastAPI. It ingests text documents, chunks them, retrieves relevant passages with BM25-style lexical scoring, and returns a grounded extractive answer with source references.
 
+**Browser preview:** [loreva-mdarafath202006.vercel.app](https://loreva-mdarafath202006.vercel.app/). The hosted page is a standalone UI demonstration; it is not connected to the FastAPI backend.
+
 ## Requirements
 Python 3.10+
 
